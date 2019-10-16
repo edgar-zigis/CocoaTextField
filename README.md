@@ -10,6 +10,11 @@ Highly customizable text field created according to Material.IO guidelines.
 ```
 github "edgar-zigis/CocoaTextField" ~> 1.0.0
 ```
+### Cocoapods
+
+```
+pod 'CocoaTextField', '~> 1.0.0'
+```
 ### Usage
 ```
 let v = CocoaTextField()
