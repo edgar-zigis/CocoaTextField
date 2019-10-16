@@ -23,4 +23,4 @@ v.borderWidth = 1
 v.cornerRadius = 11
 ```
 ### Remarks
-It can be used both programmatically and with story boards. Samples are available at CocoaTextFieldTest
+It can be used both programmatically and with storyboards. Samples are available at CocoaTextFieldTest
