@@ -3,7 +3,7 @@
 Highly customizable text field created according to Material.IO guidelines.
 ##### Minimum iOS version 11.0
 
-![alt text](https://github.com/edgar-zigis/CocoaTextField/blob/master/sample-b.gif?raw=true)
+![alt text](https://github.com/edgar-zigis/CocoaTextField/blob/master/sample-c.gif?raw=true)
 
 ### Carthage
 
