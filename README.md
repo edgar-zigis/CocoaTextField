@@ -16,7 +16,7 @@ github "edgar-zigis/CocoaTextField" ~> 1.0.0
 pod 'CocoaTextField', '~> 1.0.0'
 ```
 ### Usage
-```
+``` swift
 let v = CocoaTextField()
 v.inactiveHintColor = UIColor(red: 209/255, green: 211/255, blue: 212/255, alpha: 1)
 v.activeHintColor = UIColor(red: 94/255, green: 186/255, blue: 187/255, alpha: 1)
