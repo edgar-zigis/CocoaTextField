@@ -16,5 +16,5 @@ Pod::Spec.new do |spec|
   
   spec.source       = { :git => "https://github.com/edgar-zigis/CocoaTextField.git", :tag => "#{spec.version}" }
 
-  spec.source_files  = "CocoaTextField/**/*.{swift}"
+  spec.source_files  = "Sources/CocoaTextField/**/*.{swift}"
 end
