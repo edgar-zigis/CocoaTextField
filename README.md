@@ -18,6 +18,7 @@ pod 'CocoaTextField', '~> 1.0.0'
 ### Usage
 ``` swift
 let v = CocoaTextField()
+v.placeholder = "Your hint"
 v.inactiveHintColor = UIColor(red: 209/255, green: 211/255, blue: 212/255, alpha: 1)
 v.activeHintColor = UIColor(red: 94/255, green: 186/255, blue: 187/255, alpha: 1)
 v.focusedBackgroundColor = UIColor(red: 236/255, green: 239/255, blue: 239/255, alpha: 1)
