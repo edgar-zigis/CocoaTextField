@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "CocoaTextField"
-  spec.version      = "1.0.0"
+  spec.version      = "1.1.0"
   spec.summary      = "Highly customizable text field created according to Material.IO guidelines."
 
   spec.homepage     = "https://github.com/edgar-zigis/CocoaTextField"
@@ -12,9 +12,9 @@ Pod::Spec.new do |spec|
 
   spec.platform     = :ios
   spec.ios.deployment_target = '11.0'
-  spec.swift_version = '5.0'
+  spec.swift_version = '5.2'
   
   spec.source       = { :git => "https://github.com/edgar-zigis/CocoaTextField.git", :tag => "#{spec.version}" }
 
-  spec.source_files  = "CocoaTextField/**/*.{swift}"
+  spec.source_files  = "Sources/CocoaTextField/**/*.{swift}"
 end
