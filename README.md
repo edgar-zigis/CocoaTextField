@@ -18,7 +18,9 @@ pod 'CocoaTextField', '~> 1.0.0'
 ### Swift Package Manager
 
 ```
-https://github.com/edgar-zigis/CocoaTextField // latest version: 1.1.0
+dependencies: [
+    .package(url: "https://github.com/edgar-zigis/CocoaTextField.git", .upToNextMajor(from: "1.1.0"))
+]
 ```
 ### Usage
 ``` swift
