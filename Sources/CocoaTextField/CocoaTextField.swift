@@ -73,6 +73,14 @@ public class CocoaTextField: UITextField {
         didSet { errorLabel.textColor = errorColor }
     }
     
+    /**
+    * Sets text field's isSecureTextEntry property
+    */
+    @IBInspectable
+    open var isSecure: Bool = false {
+        didSet { isSecureTextEntry = true }
+    }
+    
     override open var placeholder: String? {
         set { hintLabel.text = newValue }
         get { return hintLabel.text }
