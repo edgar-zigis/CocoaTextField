@@ -78,6 +78,10 @@ public class CocoaTextField: UITextField {
         get { return hintLabel.text }
     }
     
+    public override var text: String? {
+        didSet { updateHint() }
+    }
+    
     private var isHintVisible = false
     private let hintLabel = UILabel()
     private let errorLabel = UILabel()
@@ -121,10 +125,26 @@ public class CocoaTextField: UITextField {
     }
     
     private func configureHint() {
-        hintLabel.transform = CGAffineTransform.identity.translatedBy(x: padding, y: 0)
         hintLabel.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        hintLabel.font = font
+        self.updateHint()
         hintLabel.textColor = inactiveHintColor
+    }
+
+    private func updateHint() {
+        if isHintVisible {
+            // Small placeholder
+            self.hintLabel.alpha = 1
+            self.hintLabel.transform = CGAffineTransform.identity.translatedBy(x: self.padding, y: -self.hintHeight())
+            self.hintLabel.font = self.hintFont
+        } else if self.text?.isEmpty ?? true {
+            // Large placeholder
+            self.hintLabel.alpha = 1
+            self.hintLabel.transform = CGAffineTransform.identity.translatedBy(x: self.padding, y: 0)
+            self.hintLabel.font = self.font
+        } else {
+            // No placeholder
+            self.hintLabel.alpha = 0
+        }
     }
     
     private func configureErrorLabel() {
@@ -137,42 +157,28 @@ public class CocoaTextField: UITextField {
     
     private func activateTextField() {
         if isHintVisible { return }
+        isHintVisible.toggle()
         
         UIView.animate(withDuration: 0.2) {
-            if let text = self.text, !text.isEmpty {
-                self.hintLabel.alpha = 1
-            } else {
-                self.hintLabel.transform =
-                    CGAffineTransform.identity.translatedBy(x: self.padding, y: -self.hintHeight())
-                self.hintLabel.font = self.hintFont
-            }
+            self.updateHint()
             self.hintLabel.textColor = self.activeHintColor
             self.backgroundColor = self.focusedBackgroundColor
             if self.errorLabel.alpha == 0 {
                 self.layer.borderColor = self.focusedBackgroundColor.cgColor
             }
         }
-        
-        isHintVisible.toggle()
     }
     
     private func deactivateTextField() {
         if !isHintVisible { return }
+        isHintVisible.toggle()
         
         UIView.animate(withDuration: 0.3) {
-            if let text = self.text, !text.isEmpty {
-                self.hintLabel.alpha = 0
-            } else {
-                self.hintLabel.transform =
-                    CGAffineTransform.identity.translatedBy(x: self.padding, y: 0)
-                self.hintLabel.font = self.font
-            }
+            self.updateHint()
             self.hintLabel.textColor = self.inactiveHintColor
             self.backgroundColor = self.defaultBackgroundColor
             self.layer.borderColor = self.borderColor.cgColor
         }
-        
-        isHintVisible.toggle()
     }
     
     private func hintHeight() -> CGFloat {
