@@ -24,16 +24,16 @@ dependencies: [
 ```
 ### Usage
 ``` swift
-let v = CocoaTextField()
-v.placeholder = "Your hint"
-v.inactiveHintColor = UIColor(red: 209/255, green: 211/255, blue: 212/255, alpha: 1)
-v.activeHintColor = UIColor(red: 94/255, green: 186/255, blue: 187/255, alpha: 1)
-v.focusedBackgroundColor = UIColor(red: 236/255, green: 239/255, blue: 239/255, alpha: 1)
-v.defaultBackgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
-v.borderColor = UIColor(red: 239/255, green: 239/255, blue: 239/255, alpha: 1)
-v.errorColor = UIColor(red: 231/255, green: 76/255, blue: 60/255, alpha: 0.7)
-v.borderWidth = 1
-v.cornerRadius = 11
+let textField = CocoaTextField()
+textField.placeholder = "Your hint"
+textField.inactiveHintColor = UIColor(red: 209/255, green: 211/255, blue: 212/255, alpha: 1)
+textField.activeHintColor = UIColor(red: 94/255, green: 186/255, blue: 187/255, alpha: 1)
+textField.focusedBackgroundColor = UIColor(red: 236/255, green: 239/255, blue: 239/255, alpha: 1)
+textField.defaultBackgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
+textField.borderColor = UIColor(red: 239/255, green: 239/255, blue: 239/255, alpha: 1)
+textField.errorColor = UIColor(red: 231/255, green: 76/255, blue: 60/255, alpha: 0.7)
+textField.borderWidth = 1
+textField.cornerRadius = 11
 ```
 ### Remarks
 It can be used both programmatically and with storyboards. Samples are available at CocoaTextFieldTest
