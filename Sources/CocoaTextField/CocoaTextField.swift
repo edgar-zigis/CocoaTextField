@@ -88,6 +88,7 @@ public class CocoaTextField: UITextField {
     
     private let padding: CGFloat = 16
     private let hintFont = UIFont.systemFont(ofSize: 12)
+    private var initialBoundsWereCalculated = false
     
     //  MARK: Public
     
@@ -120,7 +121,6 @@ public class CocoaTextField: UITextField {
         spellCheckingType = .no
         layer.borderWidth = borderWidth
         layer.cornerRadius = cornerRadius
-        hintLabel.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: frame.width, height: frame.height))
         addSubview(hintLabel)
     }
     
@@ -134,12 +134,12 @@ public class CocoaTextField: UITextField {
         if isHintVisible {
             // Small placeholder
             self.hintLabel.alpha = 1
-            self.hintLabel.transform = CGAffineTransform.identity.translatedBy(x: self.padding, y: -self.hintHeight())
+            self.hintLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.hintHeight())
             self.hintLabel.font = self.hintFont
         } else if self.text?.isEmpty ?? true {
             // Large placeholder
             self.hintLabel.alpha = 1
-            self.hintLabel.transform = CGAffineTransform.identity.translatedBy(x: self.padding, y: 0)
+            self.hintLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: 0)
             self.hintLabel.font = self.font
         } else {
             // No placeholder
@@ -246,6 +246,17 @@ public class CocoaTextField: UITextField {
     
     override open var intrinsicContentSize: CGSize {
         return CGSize(width: bounds.size.width, height: 64)
+    }
+    
+    override open func layoutSubviews() {
+        super.layoutSubviews()
+        if !initialBoundsWereCalculated {
+            hintLabel.frame = CGRect(
+                origin: CGPoint(x: self.padding, y: 0),
+                size: CGSize(width: frame.width - self.padding * 3, height: frame.height)
+            )
+            initialBoundsWereCalculated = true
+        }
     }
     
     //  MARK: Init
