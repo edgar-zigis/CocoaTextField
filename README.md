@@ -8,18 +8,18 @@ Highly customizable text field created according to Material.IO guidelines.
 ### Carthage
 
 ```
-github "edgar-zigis/CocoaTextField" ~> 1.1.1
+github "edgar-zigis/CocoaTextField" ~> 1.1.2
 ```
 ### Cocoapods
 
 ```
-pod 'CocoaTextField', '~> 1.1.1'
+pod 'CocoaTextField', '~> 1.1.2'
 ```
 ### Swift Package Manager
 
 ```
 dependencies: [
-    .package(url: "https://github.com/edgar-zigis/CocoaTextField.git", .upToNextMajor(from: "1.1.1"))
+    .package(url: "https://github.com/edgar-zigis/CocoaTextField.git", .upToNextMajor(from: "1.1.2"))
 ]
 ```
 ### Usage
