@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "CocoaTextField"
-  spec.version      = "1.1.1"
+  spec.version      = "1.1.2"
   spec.summary      = "Highly customizable text field created according to Material.IO guidelines."
 
   spec.homepage     = "https://github.com/edgar-zigis/CocoaTextField"
