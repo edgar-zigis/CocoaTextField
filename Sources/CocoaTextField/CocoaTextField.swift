@@ -126,24 +126,24 @@ public class CocoaTextField: UITextField {
     
     private func configureHint() {
         hintLabel.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.updateHint()
+        updateHint()
         hintLabel.textColor = inactiveHintColor
     }
 
     private func updateHint() {
         if isHintVisible {
             // Small placeholder
-            self.hintLabel.alpha = 1
-            self.hintLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.hintHeight())
-            self.hintLabel.font = self.hintFont
-        } else if self.text?.isEmpty ?? true {
+            hintLabel.alpha = 1
+            hintLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -hintHeight())
+            hintLabel.font = hintFont
+        } else if text?.isEmpty ?? true {
             // Large placeholder
-            self.hintLabel.alpha = 1
-            self.hintLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: 0)
-            self.hintLabel.font = self.font
+            hintLabel.alpha = 1
+            hintLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: 0)
+            hintLabel.font = font
         } else {
             // No placeholder
-            self.hintLabel.alpha = 0
+            hintLabel.alpha = 0
         }
     }
     
@@ -252,8 +252,8 @@ public class CocoaTextField: UITextField {
         super.layoutSubviews()
         if !initialBoundsWereCalculated {
             hintLabel.frame = CGRect(
-                origin: CGPoint(x: self.padding, y: 0),
-                size: CGSize(width: frame.width - self.padding * 3, height: frame.height)
+                origin: CGPoint(x: padding, y: 0),
+                size: CGSize(width: frame.width - padding * 3, height: frame.height)
             )
             initialBoundsWereCalculated = true
         }
