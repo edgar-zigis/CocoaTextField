@@ -36,4 +36,4 @@ textField.borderWidth = 1
 textField.cornerRadius = 11
 ```
 ### Remarks
-It can be used both programmatically and with storyboards. Samples are available at **CocoaTextFieldTest**
+It can be used both programmatically and with storyboards. Samples are available at **Test/CocoaTextFieldTests**
