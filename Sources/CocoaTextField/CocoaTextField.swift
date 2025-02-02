@@ -66,6 +66,12 @@ public class CocoaTextField: UITextField {
     }
     
     /**
+    * Sets to always display hint label
+    */
+    @IBInspectable
+    open var alwaysDisplayHintLabel: Bool = true
+    
+    /**
     * Sets error color
     */
     @IBInspectable
@@ -89,6 +95,7 @@ public class CocoaTextField: UITextField {
     private let padding: CGFloat = 16
     private let hintFont = UIFont.systemFont(ofSize: 12)
     private var initialBoundsWereCalculated = false
+    private var isFieldActivated = false
     
     //  MARK: Public
     
@@ -156,8 +163,9 @@ public class CocoaTextField: UITextField {
     }
     
     private func activateTextField() {
-        if isHintVisible { return }
-        isHintVisible.toggle()
+        if isFieldActivated { return }
+        isFieldActivated.toggle()
+        isHintVisible = true
         
         UIView.animate(withDuration: 0.2) {
             self.updateHint()
@@ -170,8 +178,9 @@ public class CocoaTextField: UITextField {
     }
     
     private func deactivateTextField() {
-        if !isHintVisible { return }
-        isHintVisible.toggle()
+        if !isFieldActivated { return }
+        isFieldActivated.toggle()
+        isHintVisible = alwaysDisplayHintLabel
         
         UIView.animate(withDuration: 0.3) {
             self.updateHint()
@@ -215,24 +224,22 @@ public class CocoaTextField: UITextField {
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         let superRect = super.textRect(forBounds: bounds)
-        let rect = CGRect(
+        return CGRect(
             x: padding,
-            y: superRect.origin.y,
+            y: alwaysDisplayHintLabel ? hintHeight() + padding / 8 : superRect.origin.y,
             width: superRect.size.width - padding * 1.5,
-            height: superRect.size.height
+            height: superRect.size.height - (alwaysDisplayHintLabel ? hintHeight() : 0)
         )
-        return rect
     }
     
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         let superRect = super.editingRect(forBounds: bounds)
-        let rect = CGRect(
+        return CGRect(
             x: padding,
-            y: hintHeight() - padding / 8,
+            y: hintHeight() + padding / 8 * (alwaysDisplayHintLabel ? 1 : -1),
             width: superRect.size.width - padding * 1.5,
             height: superRect.size.height - hintHeight()
         )
-        return rect
     }
     
     override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {

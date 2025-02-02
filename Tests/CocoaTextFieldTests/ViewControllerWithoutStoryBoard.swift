@@ -58,5 +58,6 @@ class ViewControllerWithoutStoryBoard: UIViewController {
         v.errorColor = UIColor(red: 231/255, green: 76/255, blue: 60/255, alpha: 0.7)
         v.borderWidth = 1
         v.cornerRadius = 11
+        v.alwaysDisplayHintLabel = true
     }
 }
