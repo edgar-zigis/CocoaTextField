@@ -8,18 +8,18 @@ Highly customizable text field created according to Material.IO guidelines.
 ### Carthage
 
 ```
-github "edgar-zigis/CocoaTextField" ~> 1.1.2
+github "edgar-zigis/CocoaTextField" ~> 1.2.0
 ```
 ### Cocoapods
 
 ```
-pod 'CocoaTextField', '~> 1.1.2'
+pod 'CocoaTextField', '~> 1.2.0'
 ```
 ### Swift Package Manager
 
 ```
 dependencies: [
-    .package(url: "https://github.com/edgar-zigis/CocoaTextField.git", .upToNextMajor(from: "1.1.2"))
+    .package(url: "https://github.com/edgar-zigis/CocoaTextField.git", .upToNextMajor(from: "1.2.0"))
 ]
 ```
 ### Usage
@@ -34,6 +34,7 @@ textField.borderColor = UIColor(red: 239/255, green: 239/255, blue: 239/255, alp
 textField.errorColor = UIColor(red: 231/255, green: 76/255, blue: 60/255, alpha: 0.7)
 textField.borderWidth = 1
 textField.cornerRadius = 11
+textField.alwaysDisplayHintLabel = true
 ```
 ### Remarks
 It can be used both programmatically and with storyboards. Samples are available at **Test/CocoaTextFieldTests**
